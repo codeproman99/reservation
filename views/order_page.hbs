@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<!-- Using materialize grid to make the layout responsive and get some style -->
+
+<body>
+    <div class="jumbotron">
+        <div class="header">
+            <h1 class="display-4">Danilo's Pizza Place</h1>
+        </div>
+
+        <div class="card">
+            <h4 style="text-decoration:underline;">Order Detail:</h4>
+            <h6>Your pizza will be the <span class="spanInfo">{{size}}</span> one
+                and your width will be the <span class="spanInfo">{{width}}</span> one.</h6>
+
+            <h5>Your pizza:</h5>
+            <table>
+                <tr>
+                    <th width="400px">Options:</th>
+                    <th>$:</th>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                {{!-- <td>{{sorts}}</td> --}}
+                                {{#if aaa}}
+                                {{#each sorts }}
+                                <td>{{this}}</td>
+                            </tr>
+                            {{/each}}
+                            {{/if}}
+                            {{#unless aaa}}
+                                <td>{{sorts}}</td>
+                            </tr>
+                            {{/unless}}
+                        </table>
+                    </td>
+                    <td>
+                        <table class="price">
+                            <tr>
+                                {{#if aaa}}
+                                {{#each pizzaPrice}}
+                                <td>{{this}}</td>
+                            </tr>
+                            {{/each}}
+                            {{/if}}
+                            {{#unless aaa}}
+                                <td>{{pizzaPrice}}</td>
+                            </tr>
+                            {{/unless}}
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{size}}</td>
+                    <td class="price">{{sizePrice}}</td>
+                </tr>
+                <tr>
+                    <td>{{width}}</td>
+                    <td class="price">{{widthPrice}}</td>
+                </tr>
+                <tr>
+                    <td><b>Quantity</b></td>
+                    <td class="price"><b>x{{quantity}}</b></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td class="item_name" width="400px"><b>SUBTOTAL:</b></td>
+                    <td><b>{{sum_sub}}</b></td>
+                </tr>
+                <tr>
+                    <td class="item_name"><b>TAXES:</b></td>
+                    <td><b>GST 7%: {{taxesValue}}</b></td>
+                </tr>
+                <tr>
+                    <td class="item_name"><b>TOTAL:</b></td>
+                    <td><b>{{totalValue}}</b></td>
+                </tr>
+            </table>
+
+
+        </div>
+        <div class="card">
+            <h4 style="text-decoration:underline;">Billing details:</h4>
+            <h5>Hi <span class="spanInfo">{{firstName}} {{lastName}}</span>, thanks for the order.</h5>
+            <h6>{{firstName}} Your order will be delivery at <span class="spanInfo">{{address}}</span> and if we have some
+                problem we can contact you by the phone <span class="spanInfo">{{phone}}</span>.
+            </h6>
+
+            <div class="allBill">
+                <form id="formPost" action="/order_done" method="POST">
+                </form>
+            </div>
+        </div>
+
+
+        <div class="card-body">
+            <h4 style="text-decoration:underline;">Please check your order details before confirm.</h5>
+            <button style="width: 110px;" form="formPost" class="btn btn-primary" type="submit" name="submit">Confirm
+            </button>
+            <button style="width: 110px;" form="formGet" class="btn btn-primary" formmethod="get" name="cancel">Cancel
+            </button>
+            <form action="/" method="get" id="formGet">
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
+</body>
+  <script id="text-template" type="text/x-handlebars-template">
+    <br>#if cond1 (expected true)
+    {{#if cond1}}
+       true
+    {{else}}
+      false
+    {{/if}}
+ 
+    <br>#if cond2 (expected false)
+    {{#if cond2}}
+      true
+    {{else}}
+      false
+    {{/if}}
+  </script>
+</html>

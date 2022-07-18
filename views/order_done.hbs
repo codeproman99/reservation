@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="header">
+            <h1 class="display-4">Danilo's Pizza Place</h1>
+        </div>
+        <div class="font1">
+            <h4 class="lead">The best homemade pizza of Vancouver.</h4>
+            <hr class="my-4">
+            <p class="lead">Fill the form to order your homemade pizza. It will be delivered in less than 30 minutes or you will get your money back!</p>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="item_name font1">Total Price:</div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <div style="font-size: 20px" class="price">{{totalValue}}$</div>
+
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body font1">
+                <span style="font-size: 24px;color:#FF0000">{{firstName}} {{lastName}}</span><br>
+                Your order was confirmed and will take approximate <span style="font-size: 24px;color:#FF0000">30</span>min to delivery it!
+            </div>
+        </div>
+
+        <div >
+            <div class="card-body">
+                <form action="/" method="get">
+                    <button type="submit" class="btn btn-primary">&lt; Return &gt;</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
